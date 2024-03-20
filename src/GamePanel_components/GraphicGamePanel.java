@@ -2,6 +2,7 @@ package GamePanel_components;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
@@ -19,6 +20,8 @@ public class GraphicGamePanel extends AbstractCustomPanel {
 	public static final int V_MIN = 1;
 	private static final double V_MAX_P = 0.023;
 	private static final int OBSTACLE_GENERATED_TO_VMAX = 30;
+	
+	private static final Color BUILDING_COLOR = Color.ORANGE;
 	
 	//Elementi del gioco
 	private Road strada;
@@ -134,33 +137,18 @@ public class GraphicGamePanel extends AbstractCustomPanel {
 		g.setColor(new Color(130,255,243));
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
-		g.setColor(Color.orange);
-		this.drawBuilding(g, 0);
-
 		int b1 = (int)(this.getWidth()*Road.DIMENSION[0]);
 		int b2 = (int)(this.getWidth()*Road.DIMENSION[1]);
-
 		int liberoX = (this.getWidth()-b1)/2;
 		int diff = (b1-b2)/2;
-		this.drawBuilding(g, this.getWidth()-(liberoX+diff));
+		int buildingWidth = liberoX+diff;
+		
+		g.setColor(BUILDING_COLOR);
+		g.fillRect(0, 0, buildingWidth, this.getHeight());
+		g.fillRect(this.getWidth()-buildingWidth, 0, buildingWidth, this.getHeight());
 		
 		this.strada.draw(g);
-		
 		this.car.draw(g);
-	}
-	
-	//Disegno dell'edifico
-	private void drawBuilding(Graphics g, int x) {
-		int b1 = (int)(this.getWidth()*Road.DIMENSION[0]);
-		int b2 = (int)(this.getWidth()*Road.DIMENSION[1]);
-		int h = this.getHeight()-(int)(this.getHeight()*Road.DIMENSION[2]);
-
-		int liberoX = (this.getWidth()-b1)/2;
-		int diff = (b1-b2)/2;
-
-		int width = liberoX+diff;
-
-		g.fillRect(x, 0, width, this.getHeight());
 	}
 	
 	//Ridimensiamento

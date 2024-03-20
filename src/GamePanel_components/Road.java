@@ -150,6 +150,10 @@ public class Road {
 		return powerUps;
 	}
 	
+	public Point[] getDimensio() {
+		return this.dimension;
+	}
+	
 	/**
 	 * Disegno della strada
 	 */

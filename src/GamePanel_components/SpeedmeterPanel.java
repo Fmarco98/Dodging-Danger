@@ -17,6 +17,9 @@ public class SpeedmeterPanel extends AbstractCustomPanel{
 	private static final double[] PADDING = {0.15, 0.15};
 	private static final String BG_PATH = "resources/speedmeter.png";
 	
+	//Elemento grafico
+	private JLabel titleLabel;
+	
 	//Attributi
 	private double vMove, vMax;
 	private ImageIcon bg;
@@ -26,13 +29,20 @@ public class SpeedmeterPanel extends AbstractCustomPanel{
 	 */
 	public SpeedmeterPanel(int width, int height) {
 		super(width, height);
+		this.setLayout(null);
+		
+		titleLabel = new JLabel("Speed");
+		titleLabel.setFont(GlobalFrame.small_font);
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		this.bg = new ImageIcon(BG_PATH);
 		this.vMax = GraphicGamePanel.V_MIN;
 		this.vMove = GraphicGamePanel.V_MIN;
 	}
 	
-	//Metodo setter delle velocità
+	/**
+	 * Imposta le velocità di riferimento del tachimetro
+	 */
 	public void setVs(double v, double max) {
 		this.vMove = v;
 		this.vMax = max;
@@ -53,12 +63,10 @@ public class SpeedmeterPanel extends AbstractCustomPanel{
 		Point p0 = new Point(padx+w, pady+h);
 		Point p1 = new Point(p0.getX()-(int)(cosA*w), p0.getY()-(int)(sinA*h));
 		
-//		JLabel lbl = new JLabel("Speed");
-//		lbl.setFont(GlobalFrame.small_font);
-//		lbl.setSize(w+padx, pady);
+		titleLabel.setBounds(padx,0,this.getWidth(), pady);
 		
 		g.setColor(Color.black);
-//		lbl.paint(g);
+		titleLabel.paint(g);
 		g.drawImage(bg.getImage(), padx, pady, w, h, null);
 		g.drawRect(padx, pady, w, h);
 		g.drawLine(p1.getX(), p1.getY(), p0.getX(), p0.getY());
