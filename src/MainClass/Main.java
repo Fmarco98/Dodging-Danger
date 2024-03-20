@@ -23,7 +23,7 @@ public class Main {
 	private static final int[] LEFT_MOVE_KEYS = {65, 37};   // D; >
 	private static final int[] BUTTONS_KEYS = {49, 50, 51}; // 1,2,3
 	private static final int RESET_KEY = 109;				// - (tn)
-	public static final boolean soundtrack = false;
+	public static final boolean soundtrack = true;
 	
 	//Archivio keyPressed
 	private static Set<Integer> pressedKeysCode = new HashSet<>();

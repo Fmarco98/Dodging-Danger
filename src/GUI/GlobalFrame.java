@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import ScoreBoardPanel_components.ScoreBoardViewerPanel;
@@ -19,7 +20,7 @@ public class GlobalFrame extends JFrame{
 	public static final int REFRESH_RATE = 1000/60;//50
 	public static final Font big_font = new Font(Font.DIALOG, Font.BOLD, 60);
 	public static final Font small_font = new Font(Font.DIALOG, Font.BOLD, 20);
-	private static int x=100,y=50,width=888,height=600;
+	private static int width=888,height=600;
 	
 	//Tipi di pannelli contenuti
 	public static final int MENU_PANEL = 1;
@@ -42,11 +43,12 @@ public class GlobalFrame extends JFrame{
 	 * Costruttore
 	 */
 	public GlobalFrame() {
-		super();
+		super(GAME_TITLE);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setBounds(x, y, width, height);
+		this.setSize(width, height);
 		this.setMinimumSize(new Dimension(width, height));
 		this.setLocationRelativeTo(null);
+		this.setIconImage(new ImageIcon("resources/images/gameIcon.png").getImage());
 		
 		menu = new MenuPanel(width, height, this);
 		game = new GamePanel(width, height);
