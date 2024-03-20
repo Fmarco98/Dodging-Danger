@@ -1,4 +1,4 @@
-package GamePanel;
+package GamePanel_components;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import GameObjects.Obstacle;
+import GameObjects.PowerUp;
 import PowerUps.ItemPowerUp;
 import Util.Point;
 
@@ -90,7 +91,7 @@ public class Road {
 	/**
 	 * Rimozione di un power up
 	 */
-	public void removePowerUp(ItemPowerUp p) {
+	public void removePowerUp(PowerUp p) {
 		for(Roadway r:this.corsie) {
 			if(r.getPowerUps().contains(p)) {
 				r.getPowerUps().remove(p);
@@ -139,14 +140,14 @@ public class Road {
 		return obstacles;
 	}
 	
-	public List<ItemPowerUp> getPowerUpsList() {
-		List<ItemPowerUp> obstacles = new ArrayList<>();
+	public List<PowerUp> getPowerUpsList() {
+		List<PowerUp> powerUps = new ArrayList<>();
 		
 		for(Roadway c:this.corsie) {
-			obstacles.addAll(c.getPowerUps());
+			powerUps.addAll(c.getPowerUps());
 		}
 		
-		return obstacles;
+		return powerUps;
 	}
 	
 	/**
@@ -167,7 +168,7 @@ public class Road {
 			o.draw(g);
 		}
 		
-		for(ItemPowerUp u:this.getPowerUpsList()) {
+		for(PowerUp u:this.getPowerUpsList()) {
 			u.draw(g);
 		}
 	}

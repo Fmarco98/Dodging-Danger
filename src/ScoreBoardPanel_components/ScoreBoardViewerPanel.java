@@ -1,4 +1,4 @@
-package ScoreBoardPanel;
+package ScoreBoardPanel_components;
 
 import java.awt.Color;
 import java.awt.Graphics;

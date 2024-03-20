@@ -7,7 +7,7 @@ import java.awt.event.ComponentEvent;
 
 import javax.swing.JFrame;
 
-import ScoreBoardPanel.ScoreBoardViewerPanel;
+import ScoreBoardPanel_components.ScoreBoardViewerPanel;
 import Util.ScoreManager;
 
 /**
@@ -111,6 +111,7 @@ public class GlobalFrame extends JFrame{
 		
 		this.invalidate();
 		this.validate();
+		
 	}
 	
 	//metodi getter

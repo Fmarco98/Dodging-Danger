@@ -2,7 +2,7 @@ package PowerUps;
 
 import javax.swing.ImageIcon;
 
-import GamePanel.GraphicGamePanel;
+import GamePanel_components.GraphicGamePanel;
 
 /**
  * Classe per rappresnetare il power up tank

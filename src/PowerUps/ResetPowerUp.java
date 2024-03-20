@@ -2,7 +2,7 @@ package PowerUps;
 
 import javax.swing.ImageIcon;
 
-import GamePanel.GraphicGamePanel;
+import GamePanel_components.GraphicGamePanel;
 
 /**
  * Classe per rappresentare il power up reset

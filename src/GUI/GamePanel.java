@@ -5,9 +5,9 @@ import java.awt.Dimension;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-import GamePanel.GraphicGamePanel;
-import GamePanel.InfoPanel;
-import GamePanel.PowerUpPanel;
+import GamePanel_components.GraphicGamePanel;
+import GamePanel_components.InfoPanel;
+import GamePanel_components.PowerUpPanel;
 import Util.AbstractCustomPanel;
 
 /**

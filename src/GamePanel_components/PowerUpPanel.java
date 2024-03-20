@@ -1,4 +1,4 @@
-package GamePanel;
+package GamePanel_components;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

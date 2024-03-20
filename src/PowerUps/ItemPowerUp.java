@@ -9,17 +9,14 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
-import GamePanel.GraphicGamePanel;
-import GamePanel.PowerUpPanel;
+import GamePanel_components.GraphicGamePanel;
+import GamePanel_components.PowerUpPanel;
 import Util.GameMovingObject;
 
 /**
  * Classe per rappresentare un Qualsiasi powerUp
  */
-public abstract class ItemPowerUp extends Rectangle implements GameMovingObject{
-	//Impostazioni
-	public static final double[] POWERUP_DIMENSION = {0.05, 0.05};//w, h
-	public static final int GENERATION_TIME = (int)(33.5*1000);
+public abstract class ItemPowerUp{
 	
 	//Tipi di powerUp
 	public static final int TANK_TYPE = 1;
@@ -31,8 +28,6 @@ public abstract class ItemPowerUp extends Rectangle implements GameMovingObject{
 	private int type, duration; // tipo di pw, durata
 	private Timer endDelay;		// Timer di delay fra inizio e fine
 	private ImageIcon img;		// Immagine
-	
-	private double x, y, width, height;	//Attributi grafici
 	
 	/**
 	 * Cotruttore di Power Up
@@ -99,83 +94,4 @@ public abstract class ItemPowerUp extends Rectangle implements GameMovingObject{
 		return type;
 	}
 
-	// Metodi per disegno sul panello grafico
-	
-	/**
-	 * Definire la posizione e dimensione del power up
-	 */
-	@Override
-	public void setBounds(int x, int y, int width, int height) {
-		this.x = x;
-		this.y = y;
-		
-		super.x = x;
-		super.y = y;
-		
-		this.width = width;
-		this.height = height;		
-		super.width = width;
-		super.height = height;
-	}
-	
-	/**
-	 * Disegna il power up
-	 */
-	public void draw(Graphics g) {
-		if(this.img != null) {
-			g.drawImage(this.img.getImage(), super.x, super.y, super.width, super.height, null);
-		} else {
-			g.setColor(Color.green);
-			g.fillOval(super.x, super.y, super.width, super.height);			
-		}
-		
-	}
-	
-	
-	// --- metodi di movimento ---
-	
-	/**
-	 * Zoomma l'oggetto dimensionalmente
-	 */
-	@Override
-	public void zoom(double px) {
-		
-		double newWidth = px+width;
-		double newHeight = px+height;
-		
-		this.width = newWidth;
-		this.height = newHeight;
-		super.width = (int)this.width;
-		super.height = (int)this.height;		
-		
-		this.moveLeft(px/2);
-	}
-	
-	/**
-	 * Movimento a Destra
-	 */
-	@Override
-	public void moveRight(double px) {
-		x += px;
-		super.x = (int)x;
-	}
-	
-	/**
-	 * Movimento verso il basso
-	 */
-	@Override
-	public void moveDown(double px) {
-		y += px;
-		super.y = (int)y;
-	}
-	
-	/**
-	 * MOvimento verso sinistra
-	 */
-	@Override
-	public void moveLeft(double px) {
-		x -= px;		
-		super.x = (int)x;
-	}
-	
 }

@@ -1,9 +1,10 @@
-package GamePanel;
+package GamePanel_components;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import GameObjects.Obstacle;
+import GameObjects.PowerUp;
 import PowerUps.ItemPowerUp;
 import PowerUps.ResetPowerUp;
 import PowerUps.SlowDownPowerUp;
@@ -24,7 +25,7 @@ public class Roadway {
 	private int upWidth, downWidth, height, type;
 	private Point[] dimension = new Point[4];
 	private List<Obstacle> obstacles = new ArrayList<>();
-	private List<ItemPowerUp> powerUps = new ArrayList<>();
+	private List<PowerUp> powerUps = new ArrayList<>();
 	private double pxLateralMoving;
 	
 	/**
@@ -60,24 +61,22 @@ public class Roadway {
 	public void genPowerUp() {
 		int type = (int)(Math.random()*4)+1;
 		
-		ItemPowerUp pw = null;
-		if(type == ItemPowerUp.TANK_TYPE) {
-			pw = new TankPowerUp();
-		} else if(type == ItemPowerUp.RESET_TYPE) {
-			pw = new ResetPowerUp();
-		} else if(type == ItemPowerUp.SPEEDY_STEARING_TYPE) {
-			pw = new SpeedyStearingPowerUp();
-		} else if(type == ItemPowerUp.SLOW_GAME_DOWN_TYPE) {
-			pw = new SlowDownPowerUp();
-		}
-		
-		int powerupWidth = (int)(upWidth*ItemPowerUp.POWERUP_DIMENSION[0]);
-		int powerupHeight = (int)(height*ItemPowerUp.POWERUP_DIMENSION[1]);
-		
+		int powerupWidth = (int)(upWidth*PowerUp.POWERUP_DIMENSION[0]);
+		int powerupHeight = (int)(height*PowerUp.POWERUP_DIMENSION[1]);
 		int powerupGap = (upWidth-powerupWidth)/2;
+		int pwX = this.dimension[0].getX()+powerupGap;
+		int pwY = this.dimension[0].getY()-powerupHeight;
 		
-		//posizioni
-		pw.setBounds(this.dimension[0].getX()+powerupGap, this.dimension[0].getY()-powerupHeight, powerupWidth, powerupHeight);
+		PowerUp pw = null;
+		if(type == ItemPowerUp.TANK_TYPE) {
+			pw = new PowerUp(pwX, pwY, powerupWidth, powerupHeight, new TankPowerUp());
+		} else if(type == ItemPowerUp.RESET_TYPE) {
+			pw = new PowerUp(pwX, pwY, powerupWidth, powerupHeight, new ResetPowerUp());
+		} else if(type == ItemPowerUp.SPEEDY_STEARING_TYPE) {
+			pw = new PowerUp(pwX, pwY, powerupWidth, powerupHeight, new SpeedyStearingPowerUp());
+		} else if(type == ItemPowerUp.SLOW_GAME_DOWN_TYPE) {
+			pw = new PowerUp(pwX, pwY, powerupWidth, powerupHeight, new SlowDownPowerUp());
+		}
 		
 		this.powerUps.add(pw);
 	}
@@ -112,7 +111,7 @@ public class Roadway {
 		
 		//muovo powerup
 		for(int i=0; i < this.powerUps.size(); i++) {
-			ItemPowerUp u = this.powerUps.get(i);
+			PowerUp u = this.powerUps.get(i);
 			
 			if(type == LEFT_ROADWAY) {
 				u.moveLeft(pxLateralMoving*v);
@@ -162,7 +161,7 @@ public class Roadway {
 	public List<Obstacle> getObstacles() {
 		return this.obstacles;
 	}
-	public List<ItemPowerUp> getPowerUps() {
+	public List<PowerUp> getPowerUps() {
 		return this.powerUps;
 	}
 	public int getType() {

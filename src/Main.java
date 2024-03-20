@@ -11,6 +11,7 @@ import javax.swing.Timer;
 
 import GUI.GlobalFrame;
 import GameObjects.Obstacle;
+import GameObjects.PowerUp;
 import PowerUps.ItemPowerUp;
 import Util.Cronometro;
 
@@ -101,7 +102,7 @@ public class Main {
 								f.getGamePanel().getGamePanel().getRoad().genObstacles();
 								f.getGamePanel().getGamePanel().increaseV(Obstacle.GENERATION_TIME);
 								
-							} else if(c.isElapsed(ItemPowerUp.GENERATION_TIME)) {								
+							} else if(c.isElapsed(PowerUp.GENERATION_TIME)) {								
 								f.getGamePanel().getGamePanel().getRoad().genPowerUp();
 							}
 							c.call();
@@ -122,9 +123,9 @@ public class Main {
 						}
 					}
 					
-					for(ItemPowerUp p:f.getGamePanel().getGamePanel().getRoad().getPowerUpsList()) {
+					for(PowerUp p:f.getGamePanel().getGamePanel().getRoad().getPowerUpsList()) {
 						if(f.getGamePanel().getGamePanel().getCar().intersects(p))
-							if(f.getGamePanel().getPowerUpPanel().addPowerUp(p))
+							if(f.getGamePanel().getPowerUpPanel().addPowerUp(p.getItemPowerUp()))
 								f.getGamePanel().getGamePanel().getRoad().removePowerUp(p);
 					}
 					

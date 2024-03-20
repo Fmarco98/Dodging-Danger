@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 
 import Buttons.MenuButton;
 import Buttons.ResetSavesButton;
-import ScoreBoardPanel.ScoreBoardViewerPanel;
+import ScoreBoardPanel_components.ScoreBoardViewerPanel;
 import Util.AbstractCustomPanel;
 import Util.Gap;
 
