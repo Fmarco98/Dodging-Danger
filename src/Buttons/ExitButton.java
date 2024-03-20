@@ -17,6 +17,7 @@ public class ExitButton extends AbstractCustomButton{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				f.dispose();
+				System.exit(0);
 			}
 		});
 	}

@@ -8,7 +8,7 @@ import GamePanel_components.GraphicGamePanel;
  * Classe per rappresentare il power up reset
  */
 public class ResetPowerUp extends ItemPowerUp{
-	private static final String ICON_PATH = "resources/powerUps/reset.png";
+	private static final String ICON_PATH = "resources/images/powerUps/reset.png";
 	
 	public ResetPowerUp() {
 		super(ItemPowerUp.RESET_TYPE, 0, new ImageIcon(ICON_PATH));

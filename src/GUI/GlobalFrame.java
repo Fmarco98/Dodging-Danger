@@ -43,8 +43,8 @@ public class GlobalFrame extends JFrame{
 	 */
 	public GlobalFrame() {
 		super();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(x, y, width, height);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setBounds(x, y, width, height);
 		this.setMinimumSize(new Dimension(width, height));
 		this.setLocationRelativeTo(null);
 		
@@ -56,6 +56,8 @@ public class GlobalFrame extends JFrame{
 		this.changeToMenu();		
 		
 		this.dimensionResized();
+//		this.close();
+		
 		this.setVisible(true);
 		
 		scoreManager = new ScoreManager();
@@ -65,6 +67,8 @@ public class GlobalFrame extends JFrame{
 	 * Cambiare il pannello al menu pricipale
 	 */
 	public void changeToMenu() {
+		gameOver.getEffectPlayer().stop();
+		
 		this.panelType = GlobalFrame.MENU_PANEL;
 		this.getContentPane().removeAll();
 		this.getContentPane().add(menu);
@@ -77,10 +81,13 @@ public class GlobalFrame extends JFrame{
 	 * Cambiare il pannello al Gioco
 	 */
 	public void changeToGame() {
+		gameOver.getEffectPlayer().stop();
+		
 		this.panelType = GlobalFrame.GAME_PANEL;
 		this.getContentPane().removeAll();
 		this.getContentPane().add(game);
 		
+		game.getSoundtrackPlayer().start();
 		this.invalidate();
 		this.validate();
 	}
@@ -89,6 +96,9 @@ public class GlobalFrame extends JFrame{
 	 * Cambiare il pannello al GameOver
 	 */
 	public void changeToGameOver(int score) {
+		game.getSoundtrackPlayer().stop();
+		gameOver.getEffectPlayer().start();
+		
 		scoreManager.addScore(score);
 		gameOver.setScore(score);
 		gameOver.setHighestScore(scoreManager.getHighestScore());
@@ -143,4 +153,35 @@ public class GlobalFrame extends JFrame{
 			}
 		});
 	}
+	
+//	private void close() {
+//		GlobalFrame f = this;
+//		this.addWindowListener(new WindowListener() {
+//
+//			@Override
+//			public void windowOpened(WindowEvent e) {}
+//
+//			@Override
+//			public void windowClosing(WindowEvent e) {}
+//
+//			@Override
+//			public void windowClosed(WindowEvent e) {
+////				f.getGamePanel().getSoundtrackPlayer().stop();
+////				f.getGamePanel().getEffectPlayer().stop();
+//			}
+//
+//			@Override
+//			public void windowIconified(WindowEvent e) {}
+//
+//			@Override
+//			public void windowDeiconified(WindowEvent e) {}
+//
+//			@Override
+//			public void windowActivated(WindowEvent e) {}
+//
+//			@Override
+//			public void windowDeactivated(WindowEvent e) {}
+//			
+//		});
+//	}
 }

@@ -14,7 +14,7 @@ public class Car extends Rectangle implements GameMovingObject{
 	//Impostazioni
 	public static final double[] DIMENSION = {0.11, 0.30, 0.03}; //base sotto, base sopra, altezza, gap l-r	
 	private static final double IMG_PADDING = 0.30;
-	private static final String IMG_PATH = "resources/car.png";
+	private static final String IMG_PATH = "resources/images/car.png";
 	private static final double VP_STEARING = 0.03;
 		
 	//Attributi

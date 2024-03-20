@@ -9,8 +9,8 @@ import GamePanel_components.GraphicGamePanel;
  */
 public class TankPowerUp extends ItemPowerUp{
 	//Impostazioni
-	private static final String ICON_PATH = "resources/powerUps/tank.png";
-	private static final String TANK_IMG = "resources/tank.png";
+	private static final String ICON_PATH = "resources/images/powerUps/tank.png";
+	private static final String TANK_IMG = "resources/images/tank.png";
 	
 	public TankPowerUp() {
 		super(ItemPowerUp.TANK_TYPE, 20000, new ImageIcon(ICON_PATH));

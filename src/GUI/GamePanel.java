@@ -9,6 +9,7 @@ import GamePanel_components.GraphicGamePanel;
 import GamePanel_components.InfoPanel;
 import GamePanel_components.PowerUpPanel;
 import Util.AbstractCustomPanel;
+import Util.SoundPlayer;
 
 /**
  * Pannello con il gioco vero e proprio
@@ -23,7 +24,10 @@ public class GamePanel extends AbstractCustomPanel{
 	private GraphicGamePanel game;	//Pannello del gioco
 	private InfoPanel info;			//Info del gioco
 	private PowerUpPanel powerUp;	//Contenitore di power up
-
+	
+	private SoundPlayer gameSoundtrak = new SoundPlayer("resources/sounds/game.wav", SoundPlayer.DO_LOOP, MainClass.Main.soundtrack);
+	private SoundPlayer powerUpEnableSound = new SoundPlayer("resources/sounds/powerup_ON.wav", SoundPlayer.NOT_LOOP);
+	
 	/**
 	 * Costruttore
 	 */
@@ -41,7 +45,7 @@ public class GamePanel extends AbstractCustomPanel{
 		
     	game = new GraphicGamePanel(gamePWidth, gamePHeight);
     	info = new InfoPanel(infoPWidth, infoPHeight, game);
-    	powerUp = new PowerUpPanel(pwWidth, pwPHeight, game);
+    	powerUp = new PowerUpPanel(pwWidth, pwPHeight, this);
     	
 		this.setLayout(new BorderLayout());
 		this.add(game, BorderLayout.CENTER);
@@ -69,6 +73,12 @@ public class GamePanel extends AbstractCustomPanel{
 	}
 	public PowerUpPanel getPowerUpPanel() {
 		return powerUp;
+	}
+	public SoundPlayer getSoundtrackPlayer() {
+		return this.gameSoundtrak;
+	}
+	public SoundPlayer getEffectPlayer() {
+		return this.powerUpEnableSound;
 	}
 
 	//Ridimensionamento

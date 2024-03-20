@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import GUI.GamePanel;
 import PowerUps.ItemPowerUp;
 
 /**
@@ -21,18 +22,21 @@ public class UserPowerUp extends JButton{
 	/**
 	 * Costruttore di un power up vuoto
 	 */
-	public UserPowerUp(PowerUpPanel p, GraphicGamePanel g) {
+	public UserPowerUp(PowerUpPanel p, GamePanel g) {
 		super();
 		this.setEnabled(false);
 		
 		this.powerUpGroup = p;
-		this.game = g;
+		this.game = g.getGamePanel();
 		
 		UserPowerUp u = this;
 		this.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(!u.getPowerUpGroup().isPowerUpEnabled()) u.usePowerUp();
+				if(!u.getPowerUpGroup().isPowerUpEnabled()) {
+					g.getEffectPlayer().restart();
+					u.usePowerUp();
+				}
 			}
 		});
 	}

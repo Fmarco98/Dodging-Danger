@@ -14,7 +14,7 @@ public class Obstacle extends Rectangle implements GameMovingObject{
 	//Impostazioni
 	public static final int GENERATION_TIME = 5*1000;
 	public static final double[] OSTACOLO_DIMENSION = {0.70, 0.10};//w, h
-	private static final String IMG_PATH = "resources/obstacle.png";
+	private static final String IMG_PATH = "resources/images/obstacle.png";
 	
 	//Attributi
 	private ImageIcon img;

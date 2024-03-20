@@ -1,4 +1,4 @@
-
+package MainClass;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +12,6 @@ import javax.swing.Timer;
 import GUI.GlobalFrame;
 import GameObjects.Obstacle;
 import GameObjects.PowerUp;
-import PowerUps.ItemPowerUp;
 import Util.Cronometro;
 
 /**
@@ -24,6 +23,7 @@ public class Main {
 	private static final int[] LEFT_MOVE_KEYS = {65, 37};   // D; >
 	private static final int[] BUTTONS_KEYS = {49, 50, 51}; // 1,2,3
 	private static final int RESET_KEY = 109;				// - (tn)
+	public static final boolean soundtrack = false;
 	
 	//Archivio keyPressed
 	private static Set<Integer> pressedKeysCode = new HashSet<>();
@@ -131,6 +131,8 @@ public class Main {
 					
 					f.getGamePanel().getGamePanel().moveItems();
 				}
+				
+//				f.getGamePanel().getEffectPlayer().start();
 				
 				f.requestFocus();
 				f.repaint();

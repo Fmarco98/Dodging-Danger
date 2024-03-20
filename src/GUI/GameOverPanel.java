@@ -17,6 +17,7 @@ import Buttons.MenuButton;
 import Buttons.PlayAgainButton;
 import Util.AbstractCustomPanel;
 import Util.Gap;
+import Util.SoundPlayer;
 
 /**
  * Classe che rappresenta il pannello di GameOver
@@ -27,13 +28,15 @@ public class GameOverPanel extends AbstractCustomPanel {
 	private static final double BORDER_WIDTH = 0.01;
 	private static final Color BG_COLOR = Color.LIGHT_GRAY;
 	private static final Color BG_BORDER = Color.GRAY;	
-	private static final String BGC_PATH = "resources/bgc.png";
+	private static final String BGC_PATH = "resources/images/bgc.png";
 	
 	//Elementi grafici
 	private JLabel scoreLabel;
 	private JLabel highestScoreLabel;
 	private ImageIcon bgc;
 	private Gap[] gaps = new Gap[4];
+	
+	private SoundPlayer gameOverSound = new SoundPlayer("resources/sounds/gameOver.wav", SoundPlayer.NOT_LOOP);
 	
 	/**
 	 * Costruttore del pannello
@@ -120,6 +123,9 @@ public class GameOverPanel extends AbstractCustomPanel {
 	}
 	public Gap[] getGaps() {
 		return this.gaps;
+	}
+	public SoundPlayer getEffectPlayer() {
+		return this.gameOverSound;
 	}
 	
 	//Ridimensionamento

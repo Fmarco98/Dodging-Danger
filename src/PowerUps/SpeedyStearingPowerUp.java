@@ -9,7 +9,7 @@ import GamePanel_components.GraphicGamePanel;
  */
 public class SpeedyStearingPowerUp extends ItemPowerUp{
 	//Impostazioni
-	private static final String ICON_PATH = "resources/powerUps/speedyStearing.png";
+	private static final String ICON_PATH = "resources/images/powerUps/speedyStearing.png";
 	
 	public SpeedyStearingPowerUp() {
 		super(ItemPowerUp.SPEEDY_STEARING_TYPE, 15000, new ImageIcon(ICON_PATH));

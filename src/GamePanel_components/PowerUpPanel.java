@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import GUI.GamePanel;
 import PowerUps.ItemPowerUp;
 import Util.AbstractCustomPanel;
 
@@ -20,7 +21,7 @@ public class PowerUpPanel extends AbstractCustomPanel {
 	
 	//Elementi dedicati ai PowerUp
 	private ArrayList<ItemPowerUp> powerUps = new ArrayList<>();	//pw nell'inventario
-	private boolean powerUpEnabled;	//serve pk solo 1 pw per volta deve essere attivo
+	private boolean powerUpEnabled;	//solo 1 pw per volta deve essere attivo
 	private ItemPowerUp powerUpActived;
 	
 	//Elementi grafici
@@ -30,7 +31,7 @@ public class PowerUpPanel extends AbstractCustomPanel {
 	/**
 	 * Costruttore del pannello
 	 */
-	public PowerUpPanel(int width, int height, GraphicGamePanel g) {
+	public PowerUpPanel(int width, int height, GamePanel g) {
 		super(width, height);
 		
 		countDown = new PowerUpDurationPanel((int)(width*PowerUpDurationPanel.DIMENSION[0]), (int)(height*PowerUpDurationPanel.DIMENSION[1]));
@@ -41,7 +42,7 @@ public class PowerUpPanel extends AbstractCustomPanel {
 	}
 	
 	//Metodo per creare l'interfaccia
-	private void createPanel(GraphicGamePanel game) {
+	private void createPanel(GamePanel game) {
 		this.setLayout(new BorderLayout());
 		this.add(countDown, BorderLayout.NORTH);
 		

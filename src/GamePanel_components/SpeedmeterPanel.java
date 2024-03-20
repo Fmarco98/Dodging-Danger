@@ -15,7 +15,7 @@ public class SpeedmeterPanel extends AbstractCustomPanel{
 	//Impostazioni
 	private static final int MAX_ANGLE = 80;
 	private static final double[] PADDING = {0.15, 0.15};
-	private static final String BG_PATH = "resources/speedmeter.png";
+	private static final String BG_PATH = "resources/images/speedmeter.png";
 	
 	//Elemento grafico
 	private JLabel titleLabel;

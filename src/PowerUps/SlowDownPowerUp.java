@@ -9,7 +9,7 @@ import GamePanel_components.GraphicGamePanel;
  */
 public class SlowDownPowerUp extends ItemPowerUp{
 	//Impostazioni
-	private static final String ICON_PATH = "resources/powerUps/slowDown.png";
+	private static final String ICON_PATH = "resources/images/powerUps/slowDown.png";
 	
 	//Metodo costruttore
 	public SlowDownPowerUp() {

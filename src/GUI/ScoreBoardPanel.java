@@ -26,7 +26,7 @@ public class ScoreBoardPanel extends AbstractCustomPanel{
 	private static final double BORDER_WIDTH = 0.01;
 	private static final Color BG_COLOR = Color.LIGHT_GRAY;
 	private static final Color BG_BORDER = Color.GRAY;	
-	private static final String BGC_PATH = "resources/bgc.png";
+	private static final String BGC_PATH = "resources/images/bgc.png";
 
 	//Elementi grafici
 	private ImageIcon bgc;
