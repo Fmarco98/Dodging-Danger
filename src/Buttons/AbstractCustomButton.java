@@ -13,7 +13,7 @@ import GUI.GlobalFrame;
 
 public class AbstractCustomButton extends JButton{
 	private static final Color BG_COLOR = Color.LIGHT_GRAY;
-	private static final Font FONT = GlobalFrame.small_font;	
+	private static final Font FONT = GlobalFrame.SMALL_FONT;	
 	private static final Border DEFAULT_STYLE = BorderFactory.createRaisedSoftBevelBorder();
 	private static final Border MOUSE_ON_STYLE = BorderFactory.createLoweredBevelBorder();
 	

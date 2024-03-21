@@ -40,7 +40,7 @@ public class InfoPanel extends AbstractCustomPanel{
 		
 		scoreLabel = new JLabel("Score: "+score);
 		scoreLabel.setHorizontalAlignment(JLabel.CENTER);
-		scoreLabel.setFont(GlobalFrame.small_font);
+		scoreLabel.setFont(GlobalFrame.SMALL_FONT);
 		scorePanel.add(scoreLabel);
 		
 		this.add(scorePanel);

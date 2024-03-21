@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import Buttons.MenuButton;
 import Buttons.PlayAgainButton;
+import MainClass.Main;
 import Util.AbstractCustomPanel;
 import Util.Gap;
 import Util.SoundPlayer;
@@ -28,7 +29,7 @@ public class GameOverPanel extends AbstractCustomPanel {
 	private static final double BORDER_WIDTH = 0.01;
 	private static final Color BG_COLOR = Color.LIGHT_GRAY;
 	private static final Color BG_BORDER = Color.GRAY;	
-	private static final String BGC_PATH = "resources/images/bgc.png";
+	private static final String BG_PATH = GlobalFrame.BG_PATH;
 	
 	//Elementi grafici
 	private JLabel scoreLabel;
@@ -36,7 +37,7 @@ public class GameOverPanel extends AbstractCustomPanel {
 	private ImageIcon bgc;
 	private Gap[] gaps = new Gap[4];
 	
-	private SoundPlayer gameOverSound = new SoundPlayer("resources/sounds/gameOver.wav", SoundPlayer.NOT_LOOP);
+	private SoundPlayer gameOverSound = new SoundPlayer("resources/sounds/gameOver.wav", SoundPlayer.NOT_LOOP, Main.soundeffects);
 	
 	/**
 	 * Costruttore del pannello
@@ -44,7 +45,7 @@ public class GameOverPanel extends AbstractCustomPanel {
 	public GameOverPanel(int width, int height, GlobalFrame frame) {
 		super(width, height);
 		
-		bgc = new ImageIcon(BGC_PATH);
+		bgc = new ImageIcon(BG_PATH);
 		scoreLabel = new JLabel("Score: ---");
 		highestScoreLabel = new JLabel("Highest Score: ---");
 		
@@ -79,16 +80,16 @@ public class GameOverPanel extends AbstractCustomPanel {
 		
 		JLabel gameOverDisplay = new JLabel("Game Over");
 		gameOverDisplay.setOpaque(false);
-		gameOverDisplay.setFont(GlobalFrame.big_font);
+		gameOverDisplay.setFont(GlobalFrame.BIG_FONT);
 		gameOverDisplay.setHorizontalAlignment(JLabel.CENTER);
 		
 		labelsZone.add(gameOverDisplay);
 		
 		scoreLabel.setOpaque(false);
-		scoreLabel.setFont(GlobalFrame.small_font);
+		scoreLabel.setFont(GlobalFrame.SMALL_FONT);
 		scoreLabel.setHorizontalAlignment(JLabel.CENTER);
 		highestScoreLabel.setOpaque(false);
-		highestScoreLabel.setFont(GlobalFrame.small_font);
+		highestScoreLabel.setFont(GlobalFrame.SMALL_FONT);
 		highestScoreLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		labelsZone.add(highestScoreLabel);
@@ -109,8 +110,7 @@ public class GameOverPanel extends AbstractCustomPanel {
 	
 	@Override
 	public void paint(Graphics g) {
-		g.drawImage(bgc.getImage(), 0, 0, this.getWidth(), this.getHeight(), null);
-		
+		g.drawImage(bgc.getImage(), 0, 0, this.getWidth(), this.getHeight(), null);		
 		super.paint(g);
 	}
 	

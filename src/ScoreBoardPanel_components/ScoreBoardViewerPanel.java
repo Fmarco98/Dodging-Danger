@@ -7,9 +7,13 @@ import java.util.List;
 
 import Util.AbstractCustomPanel;
 
+/**
+ * Pannello grafico della score board
+ */
 public class ScoreBoardViewerPanel extends AbstractCustomPanel{
 	public static final int SCORE_BAR_NUMBER = 9;
 	
+	//Impostazini
 	private static final Color SCORE_BAR_COLOR = new Color(26, 191, 8);	
 	private static final double BLACK_BAR_HEIGHT = 0.02;
 	private static final double BLACK_BAR_LATERAL_GAP = 0.03;
@@ -17,12 +21,17 @@ public class ScoreBoardViewerPanel extends AbstractCustomPanel{
 	private static final double LATERAL_GAP = 0.05;
 	private static final double BAR_PADDING = 0.015;
 	
+	//Atrtibuti
 	private ArrayList<Integer> scores = new ArrayList<>();
 	
-	public ScoreBoardViewerPanel(int width, int height) {
-		super(width, height);
+	/**
+	 * Costruttore
+	 */
+	public ScoreBoardViewerPanel() {
+		super(0,0);
 	}
 	
+	//metodo setter
 	public void setTopScores(List<Integer> topScores) {
 		this.scores = (ArrayList<Integer>) topScores;
 	}
@@ -41,6 +50,7 @@ public class ScoreBoardViewerPanel extends AbstractCustomPanel{
 			heightPerPx = (double)maxHeight/scores.get(0);
 		} catch(Exception e) {}
 		
+		//Disegno
 		g.setColor(SCORE_BAR_COLOR);
 		for(int i=0; i < SCORE_BAR_NUMBER; i++) {
 			try {				

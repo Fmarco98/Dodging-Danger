@@ -26,7 +26,7 @@ public class ScoreBoardPanel extends AbstractCustomPanel{
 	private static final double BORDER_WIDTH = 0.01;
 	private static final Color BG_COLOR = Color.LIGHT_GRAY;
 	private static final Color BG_BORDER = Color.GRAY;	
-	private static final String BGC_PATH = "resources/images/bgc.png";
+	private static final String BG_PATH = GlobalFrame.BG_PATH;
 
 	//Elementi grafici
 	private ImageIcon bgc;
@@ -40,8 +40,8 @@ public class ScoreBoardPanel extends AbstractCustomPanel{
 	public ScoreBoardPanel(int width, int height, GlobalFrame frame) {
 		super(width, height);
 
-		bgc = new ImageIcon(BGC_PATH);
-		score = new ScoreBoardViewerPanel(width, height);
+		bgc = new ImageIcon(BG_PATH);
+		score = new ScoreBoardViewerPanel();
 		
 		this.createPanel(frame);
 		this.dimensionResized();
@@ -70,7 +70,7 @@ public class ScoreBoardPanel extends AbstractCustomPanel{
 		JLabel titleLabel = new JLabel("Score Board");
 		titleLabel.setBorder(BorderFactory.createLineBorder(BG_BORDER, (int)(this.getWidth()*BORDER_WIDTH)));
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
-		titleLabel.setFont(GlobalFrame.big_font);
+		titleLabel.setFont(GlobalFrame.BIG_FONT);
 		titleLabel.setBackground(BG_COLOR);
 		titleLabel.setOpaque(true);
 		internalPanel.add(titleLabel, BorderLayout.NORTH);
@@ -84,7 +84,7 @@ public class ScoreBoardPanel extends AbstractCustomPanel{
 		
 		highestScoreLabel = new JLabel("Highest score: -----");
 		highestScoreLabel.setHorizontalAlignment(JLabel.CENTER);
-		highestScoreLabel.setFont(GlobalFrame.small_font);
+		highestScoreLabel.setFont(GlobalFrame.SMALL_FONT);
 		scoreBoardPanel.add(highestScoreLabel, BorderLayout.SOUTH);
 		
 		internalPanel.add(scoreBoardPanel, BorderLayout.CENTER);
@@ -129,6 +129,9 @@ public class ScoreBoardPanel extends AbstractCustomPanel{
 				gaps[1].setSize((int)(size.width*GAP_DIMENSION[1]), size.height);
 				gaps[2].setSize(size.width, (int)(size.height*GAP_DIMENSION[2]));
 				gaps[3].setSize((int)(size.width*GAP_DIMENSION[3]), size.height);
+				
+				p.invalidate();
+				p.validate();
 			}
 		});
 	}

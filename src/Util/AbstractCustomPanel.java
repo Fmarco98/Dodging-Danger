@@ -10,6 +10,13 @@ import javax.swing.JPanel;
 public abstract class AbstractCustomPanel extends JPanel{
 	
 	/**
+	 * Costruttore vuota
+	 */
+	public AbstractCustomPanel() {
+		this(0, 0);
+	}
+	
+	/**
 	 * Costruttore da dimensione
 	 */
 	public AbstractCustomPanel(Dimension dim) {

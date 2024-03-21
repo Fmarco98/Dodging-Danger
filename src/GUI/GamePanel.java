@@ -8,6 +8,7 @@ import java.awt.event.ComponentEvent;
 import GamePanel_components.GraphicGamePanel;
 import GamePanel_components.InfoPanel;
 import GamePanel_components.PowerUpPanel;
+import MainClass.Main;
 import Util.AbstractCustomPanel;
 import Util.SoundPlayer;
 
@@ -25,8 +26,8 @@ public class GamePanel extends AbstractCustomPanel{
 	private InfoPanel info;			//Info del gioco
 	private PowerUpPanel powerUp;	//Contenitore di power up
 	
-	private SoundPlayer gameSoundtrak = new SoundPlayer("resources/sounds/game.wav", SoundPlayer.DO_LOOP, MainClass.Main.soundtrack);
-	private SoundPlayer powerUpEnableSound = new SoundPlayer("resources/sounds/powerup_ON.wav", SoundPlayer.NOT_LOOP);
+	private SoundPlayer gameSoundtrak = new SoundPlayer("resources/sounds/game.wav", SoundPlayer.DO_LOOP, Main.soundtrack);
+	private SoundPlayer powerUpEnableSound = new SoundPlayer("resources/sounds/powerup_ON.wav", SoundPlayer.NOT_LOOP, Main.soundeffects);
 	
 	/**
 	 * Costruttore

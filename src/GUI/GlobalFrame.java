@@ -7,7 +7,9 @@ import java.awt.event.ComponentEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
+import MainClass.Main;
 import ScoreBoardPanel_components.ScoreBoardViewerPanel;
 import Util.ScoreManager;
 
@@ -18,8 +20,9 @@ public class GlobalFrame extends JFrame{
 	//Impostazioni
 	public static final String GAME_TITLE = "Dodging Danger";
 	public static final int REFRESH_RATE = 1000/60;//50
-	public static final Font big_font = new Font(Font.DIALOG, Font.BOLD, 60);
-	public static final Font small_font = new Font(Font.DIALOG, Font.BOLD, 20);
+	public static final Font BIG_FONT = new Font(Font.DIALOG, Font.BOLD, 60);
+	public static final Font SMALL_FONT = new Font(Font.DIALOG, Font.BOLD, 20);
+	public static final String BG_PATH = "resources/images/bgc.png";
 	private static int width=888,height=600;
 	
 	//Tipi di pannelli contenuti
@@ -54,15 +57,15 @@ public class GlobalFrame extends JFrame{
 		game = new GamePanel(width, height);
 		gameOver = new GameOverPanel(width, height, this);
 		scoreBoard = new ScoreBoardPanel(width, height, this);	
+		scoreManager = new ScoreManager();
 		
 		this.changeToMenu();		
 		
 		this.dimensionResized();
-//		this.close();
 		
 		this.setVisible(true);
 		
-		scoreManager = new ScoreManager();
+		if(Main.soundeffects || Main.soundtrack) JOptionPane.showMessageDialog(this, "Gli audio sono attivi", "Info", JOptionPane.INFORMATION_MESSAGE);;
 	}
 	
 	/**
@@ -114,6 +117,9 @@ public class GlobalFrame extends JFrame{
 		this.validate();
 	}
 	
+	/**
+	 * Cambiare il pannello a ScoreBoard
+	 */
 	public void changeToScoreBoardPanel() {
 		this.panelType = GlobalFrame.SCORE_BOARD_PANEL;
 		this.getContentPane().removeAll();
@@ -155,35 +161,4 @@ public class GlobalFrame extends JFrame{
 			}
 		});
 	}
-	
-//	private void close() {
-//		GlobalFrame f = this;
-//		this.addWindowListener(new WindowListener() {
-//
-//			@Override
-//			public void windowOpened(WindowEvent e) {}
-//
-//			@Override
-//			public void windowClosing(WindowEvent e) {}
-//
-//			@Override
-//			public void windowClosed(WindowEvent e) {
-////				f.getGamePanel().getSoundtrackPlayer().stop();
-////				f.getGamePanel().getEffectPlayer().stop();
-//			}
-//
-//			@Override
-//			public void windowIconified(WindowEvent e) {}
-//
-//			@Override
-//			public void windowDeiconified(WindowEvent e) {}
-//
-//			@Override
-//			public void windowActivated(WindowEvent e) {}
-//
-//			@Override
-//			public void windowDeactivated(WindowEvent e) {}
-//			
-//		});
-//	}
 }

@@ -32,7 +32,7 @@ public class SpeedmeterPanel extends AbstractCustomPanel{
 		this.setLayout(null);
 		
 		titleLabel = new JLabel("Speed");
-		titleLabel.setFont(GlobalFrame.small_font);
+		titleLabel.setFont(GlobalFrame.SMALL_FONT);
 		titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		
 		this.bg = new ImageIcon(BG_PATH);

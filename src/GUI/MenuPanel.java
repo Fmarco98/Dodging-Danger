@@ -25,7 +25,7 @@ public class MenuPanel extends AbstractCustomPanel{
 	private static final double BORDER_WIDTH = 0.01;
 	private static final Color BG_BORDER = Color.GRAY;
 	private static final Color BG_COLOR = Color.LIGHT_GRAY;
-	private static final String BGC_PATH = "resources/images/bgc.png";
+	private static final String BG_PATH = GlobalFrame.BG_PATH;
 	
 	//Elementi grafici
 	private ImageIcon bgc;
@@ -42,7 +42,7 @@ public class MenuPanel extends AbstractCustomPanel{
 		play = new PlayButton(f);
 		scoreButton = new ScoreBoardButton(f);
 		exit = new ExitButton(f);
-		bgc = new ImageIcon(BGC_PATH);
+		bgc = new ImageIcon(BG_PATH);
 		
 		this.createPanel();
 	}
@@ -53,7 +53,7 @@ public class MenuPanel extends AbstractCustomPanel{
 		this.setOpaque(false);
 		
 		JLabel gameTitle = new JLabel(GlobalFrame.GAME_TITLE);
-		gameTitle.setFont(GlobalFrame.big_font);
+		gameTitle.setFont(GlobalFrame.BIG_FONT);
 		gameTitle.setHorizontalAlignment(JLabel.CENTER);
 		gameTitle.setOpaque(true);
 		gameTitle.setBackground(BG_COLOR);

@@ -17,20 +17,22 @@ import Util.Cronometro;
 /**
  * Main
  */
-public class Main { 
+public class Main {
+	//Impostazione 
+	public static final boolean soundtrack = true;
+	public static final boolean soundeffects = true;
+	
 	//KeyBinds 
 	private static final int[] RIGHT_MOVE_KEYS = {68, 39};  // A; <
 	private static final int[] LEFT_MOVE_KEYS = {65, 37};   // D; >
 	private static final int[] BUTTONS_KEYS = {49, 50, 51}; // 1,2,3
 	private static final int RESET_KEY = 109;				// - (tn)
-	public static final boolean soundtrack = true;
 	
 	//Archivio keyPressed
 	private static Set<Integer> pressedKeysCode = new HashSet<>();
 	
 	public static void main(String[] args) {
 		GlobalFrame f = new GlobalFrame();
-//		f.getGamePanel().getGamePanel().setCarDies(false);
 		
 		f.addKeyListener(new KeyListener() {
 			@Override
@@ -107,7 +109,7 @@ public class Main {
 							}
 							c.call();
 						}
-					} 
+					}
 					
 					f.getGamePanel().getInfoPanel().getSpeedmeter().setVs(f.getGamePanel().getGamePanel().getCurrentV(),f.getGamePanel().getGamePanel().getMaxV());
 
@@ -131,8 +133,6 @@ public class Main {
 					
 					f.getGamePanel().getGamePanel().moveItems();
 				}
-				
-//				f.getGamePanel().getEffectPlayer().start();
 				
 				f.requestFocus();
 				f.repaint();
