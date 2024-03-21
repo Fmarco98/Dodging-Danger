@@ -31,7 +31,6 @@ public class GlobalFrame extends JFrame{
 	public static final int GAME_OVER_PANEL = 3;
 	public static final int SCORE_BOARD_PANEL = 4;
 	
-	private ScoreManager scoreManager;
 	
 	//Pannelli da switchare durante il programma
 	private MenuPanel menu;
@@ -41,6 +40,7 @@ public class GlobalFrame extends JFrame{
 	
 	//Attributo
 	private int panelType; // indica il tipo del pannello visto nel frame
+	private ScoreManager scoreManager; //gestore degli score
 	
 	/**
 	 * Costruttore
@@ -65,7 +65,7 @@ public class GlobalFrame extends JFrame{
 		
 		this.setVisible(true);
 		
-		if(Main.soundeffects || Main.soundtrack) JOptionPane.showMessageDialog(this, "Gli audio sono attivi", "Info", JOptionPane.INFORMATION_MESSAGE);;
+		if(Main.ENABLE_SOUNDEFFECTS || Main.ENABLE_SOUNDTRACK) JOptionPane.showMessageDialog(this, "Gli audio sono attivi", "Info", JOptionPane.INFORMATION_MESSAGE);;
 	}
 	
 	/**

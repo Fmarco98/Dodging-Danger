@@ -37,7 +37,7 @@ public class GameOverPanel extends AbstractCustomPanel {
 	private ImageIcon bgc;
 	private Gap[] gaps = new Gap[4];
 	
-	private SoundPlayer gameOverSound = new SoundPlayer("resources/sounds/gameOver.wav", SoundPlayer.NOT_LOOP, Main.soundeffects);
+	private SoundPlayer gameOverSound = new SoundPlayer("resources/sounds/gameOver.wav", SoundPlayer.NOT_LOOP, Main.ENABLE_SOUNDEFFECTS);
 	
 	/**
 	 * Costruttore del pannello

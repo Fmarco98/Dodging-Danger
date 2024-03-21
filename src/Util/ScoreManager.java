@@ -70,9 +70,7 @@ public class ScoreManager {
 		Collections.sort(scores);
 		Collections.reverse(scores);
 		
-		if(n > scores.size()) 
-			n = scores.size();
-		
+		n = scores.size() < n ? scores.size() : n;
 		for(int i=0; i < n; i++) {
 			topScores.add(scores.get(i));
 		}
@@ -80,6 +78,9 @@ public class ScoreManager {
 		return topScores;
 	}
 	
+	/**
+	 * Cancellare il azzera i salvataggi degli score
+	 */
 	public boolean resetSaves() {
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));

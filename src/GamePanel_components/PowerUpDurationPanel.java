@@ -105,10 +105,10 @@ public class PowerUpDurationPanel extends AbstractCustomPanel{
 				@Override
 				public void componentResized(ComponentEvent e) {
 					Dimension dim = p.getSize();
-					Rectangle r = p.getCountDownBar();
+					Rectanglev2 r = p.getCountDownBar();
 					
 					int gap = (int)(dim.height*BAR_GAP);
-					r.setBounds(gap, gap, (int)r.getWidth(), dim.height-2*gap);
+					r.setBounds(gap, gap, r.getWidth(), dim.height-2*gap);
 					
 					p.invalidate();
 					p.validate();

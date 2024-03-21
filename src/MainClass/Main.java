@@ -19,8 +19,8 @@ import Util.Cronometro;
  */
 public class Main {
 	//Impostazione 
-	public static final boolean soundtrack = true;
-	public static final boolean soundeffects = true;
+	public static final boolean ENABLE_SOUNDTRACK = false;
+	public static final boolean ENABLE_SOUNDEFFECTS = true;
 	
 	//KeyBinds 
 	private static final int[] RIGHT_MOVE_KEYS = {68, 39};  // A; <

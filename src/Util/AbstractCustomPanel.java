@@ -13,7 +13,7 @@ public abstract class AbstractCustomPanel extends JPanel{
 	 * Costruttore vuota
 	 */
 	public AbstractCustomPanel() {
-		this(0, 0);
+		this(0,0);
 	}
 	
 	/**

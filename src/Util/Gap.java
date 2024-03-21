@@ -1,18 +1,20 @@
 package Util;
 
-import java.awt.Dimension;
-
-import javax.swing.JPanel;
-
 /**
- * Panell grafico per lo spazio vuoto
+ * Gap per sapazio vuoto
  */
 public class Gap extends AbstractCustomPanel{
 	
+	/**
+	 * Costruttore base
+	 */
 	public Gap() {
 		this(0,0);
 	}
 	
+	/**
+	 * Costruttore con dimensioni
+	 */
 	public Gap(int width, int height) {
 		super(width, height);
 		

@@ -20,6 +20,9 @@ import ScoreBoardPanel_components.ScoreBoardViewerPanel;
 import Util.AbstractCustomPanel;
 import Util.Gap;
 
+/**
+ * Pannello di score board
+ */
 public class ScoreBoardPanel extends AbstractCustomPanel{
 	//Impostazioni generiche
 	private static final double[] GAP_DIMENSION = {0.10, 0.13 , 0.15, 0.13}; //up, right, down, left
@@ -99,12 +102,7 @@ public class ScoreBoardPanel extends AbstractCustomPanel{
 		
 		this.add(internalPanel, BorderLayout.CENTER);
 	}
-	
-	public void setTopScores(List<Integer> topScores) {
-		highestScoreLabel.setText("Highest score: "+ (topScores.size() > 0 ? topScores.get(0) : "-----"));
-		this.score.setTopScores(topScores);
-	}
-	
+		
 	@Override
 	public void paint(Graphics g) {
 		g.drawImage(bgc.getImage(), 0, 0, this.getWidth(), this.getHeight(), null);
@@ -112,6 +110,11 @@ public class ScoreBoardPanel extends AbstractCustomPanel{
 		super.paint(g);
 	}
 	
+	//Metodi setter e getter
+	public void setTopScores(List<Integer> topScores) {
+		highestScoreLabel.setText("Highest score: "+ (topScores.size() > 0 ? topScores.get(0) : "-----"));
+		this.score.setTopScores(topScores);
+	}
 	public Gap[] getGaps() {
 		return this.gaps;
 	}

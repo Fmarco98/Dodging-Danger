@@ -17,7 +17,6 @@ public class SoundPlayer {
 	private Clip music;
 	
 	private boolean loop;
-	private boolean started;
 	
 	/**
 	 * Costruttore
@@ -27,7 +26,7 @@ public class SoundPlayer {
 			this.loop = loop;
 			File file = new File(filepath);
 			try {
-				//Stram audio
+				//Stream audio
 				AudioInputStream audio = AudioSystem.getAudioInputStream(file);
 				music = AudioSystem.getClip();
 				music.open(audio);
@@ -36,15 +35,13 @@ public class SoundPlayer {
 			}
 			this.stop();			
 		}
-		started = false; 
 	}
 	
 	/**
 	 * Inizia l'audio
 	 */
 	public void start() {
-		if(music != null && !started) {
-			started = true;
+		if(music != null) {
 			music.start();
 			if(loop) music.loop(Clip.LOOP_CONTINUOUSLY);	
 		}
@@ -64,8 +61,7 @@ public class SoundPlayer {
 	 * Ferma l'audio
 	 */
 	public void stop() {
-		if(music != null && started) {
-			started = false;
+		if(music != null) {
 			music.stop();
 			music.setMicrosecondPosition(0);
 		}

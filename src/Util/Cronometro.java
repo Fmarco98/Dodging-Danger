@@ -13,7 +13,6 @@ public class Cronometro {
 	//Attributi
 	private long time;
 	private Timer timer;
-	private int ms;
 	private boolean started;
 	private boolean called;
 	
@@ -21,7 +20,6 @@ public class Cronometro {
 	 * Costruttore
 	 */
 	public Cronometro(int ms) {
-		this.ms = ms;
 		time = 0;
 		started = false;
 		called = false;

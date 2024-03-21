@@ -26,8 +26,8 @@ public class GamePanel extends AbstractCustomPanel{
 	private InfoPanel info;			//Info del gioco
 	private PowerUpPanel powerUp;	//Contenitore di power up
 	
-	private SoundPlayer gameSoundtrak = new SoundPlayer("resources/sounds/game.wav", SoundPlayer.DO_LOOP, Main.soundtrack);
-	private SoundPlayer powerUpEnableSound = new SoundPlayer("resources/sounds/powerup_ON.wav", SoundPlayer.NOT_LOOP, Main.soundeffects);
+	private SoundPlayer gameSoundtrak = new SoundPlayer("resources/sounds/game.wav", SoundPlayer.DO_LOOP, Main.ENABLE_SOUNDTRACK);
+	private SoundPlayer powerUpEnableSound = new SoundPlayer("resources/sounds/powerup_ON.wav", SoundPlayer.NOT_LOOP, Main.ENABLE_SOUNDEFFECTS);
 	
 	/**
 	 * Costruttore
